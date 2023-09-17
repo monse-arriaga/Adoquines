@@ -1,3 +1,4 @@
+package ArriagaEstela.src;
 
 import java.lang.Math;
 import java.util.Random;
@@ -10,6 +11,11 @@ static int vertical;
 static String vacio;
 
 public static String[][] crearTablero(int k){
+    /**
+     * Metodo para crear un tablero 2^k de strings
+     * @param k int
+     * @return arreglo string
+     */
     horizontal = (int) Math.pow(2,k);
     vertical = (int) Math.pow(2,k);
     vacio="v";
@@ -35,6 +41,11 @@ public static String[][] crearTablero(int k){
 
 
 public static String[][] adoquinamiento(String[][] tablero){
+    /**
+     * Metodo que pone la casilla especial, pone en orden las medidas y manda a llamar el metodo que adoquina los casos base
+     * @param String[][] tablero
+     * @return String[][] tablero
+     */
 
     Random r = new Random();
     int random_int = r.nextInt(tablero.length);
@@ -75,6 +86,17 @@ public static String[][] adoquinamiento(String[][] tablero){
 }
 
 public static String[][] adoquinamientoR(String[][] tablero, int random1, int random2, int longitud, int vert, int hor) {  
+    /**
+     * Metodo que adoquina las casillas base
+     * @param String[][] tablero
+     * @param int random1
+     * @param int random2
+     * @param int longitud
+     * @param int vert
+     * @param int hor
+     * @return String[][] tablero
+     */
+
     int mitad = longitud/2;
 
     if(longitud==2){
@@ -115,6 +137,11 @@ public static String[][] adoquinamientoR(String[][] tablero, int random1, int ra
 
 
     public static String[][] colorearTabla(String[][] tabla){
+        /**
+         * Metodo que colorea la tabla
+         * @param String[][] tabla
+         * @return String[][] tabla
+         */
         System.out.println("Adoquinamos los espacios restantes:\n");
         for(int i=0; i < horizontal-1; i++){
         for(int j=0; j<vertical-1; j++){
@@ -164,7 +191,6 @@ public static String[][] adoquinamientoR(String[][] tablero, int random1, int ra
         int terminal = Integer.parseInt(args[0]);
 
         colorearTabla(adoquinamiento(crearTablero(terminal)));
-        //System.out.println("\033[31m aaaa \033[37m");
     }
 }
 
