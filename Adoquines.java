@@ -82,21 +82,21 @@ public static String[][] adoquinamientoR(String[][] tablero, int random1, int ra
         adoquinamientoR(tablero, vert-1, hor, mitad, vert-(mitad/2), hor+(mitad/2));
      }
 
-     if(random1 <= vert-1 && random2<hor && tablero[vert-1][hor-1] != "\033[36ma\\u001B[0m"){ //revisa el cuadrante arriba izquierdo
+     if(random1 <= vert-1 && random2<hor ){ //revisa el cuadrante arriba izquierdo
         adoquinamientoR(tablero, random1, random2, mitad, vert-(mitad/2), hor-(mitad/2));
      }else{
         tablero[vert-1][hor-1]="\033[36ma\u001B[0m";
         adoquinamientoR(tablero, vert-1, hor-1, mitad, vert-(mitad/2), hor-(mitad/2));
      }
 
-     if(random1>=vert && random2 >= hor && tablero[vert][hor] != "\033[36ma\\u001B[0m"){ //revisa el cuadrante abajo derecho
+     if(random1>=vert && random2 >= hor){ //revisa el cuadrante abajo derecho
         adoquinamientoR(tablero, random1, random2, mitad, vert+(mitad/2), hor+(mitad/2));
      }else{
          tablero[vert][hor]="\033[36ma\u001B[0m";
          adoquinamientoR(tablero, vert, hor, mitad, vert+(mitad/2), hor+(mitad/2));
      }
 
-     if(random1>=vert && random2<hor && tablero[vert][hor-1] != "\033[36ma\\u001B[0m"){ //revisa el cuadrante abajo izquierdo
+     if(random1>=vert && random2<hor){ //revisa el cuadrante abajo izquierdo
         adoquinamientoR(tablero, random1, random2, mitad, vert+(mitad/2), hor-(mitad/2));
      }else{
         tablero[vert][hor-1]="\033[36ma\u001B[0m";
@@ -109,8 +109,9 @@ public static String[][] adoquinamientoR(String[][] tablero, int random1, int ra
 
 
 
+
     public static void main(String[] args) {
-        adoquinamiento(crearTablero(4));
+        adoquinamiento(crearTablero(3));
         //System.out.println("\033[31m aaaa \033[37m");
     }
 }
