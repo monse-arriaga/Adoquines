@@ -75,28 +75,28 @@ public static String[][] adoquinamientoR(String[][] tablero, int random1, int ra
         return tablero;
     }
 
-    if((random1 <= vert-1 && !(vert>mitad)) && ((random2 >= hor)&&!(hor<mitad))){ //revisa el cuadrante arriba derecho
+    if(random1 <= vert-1 && random2 >= hor && tablero[vert-1][hor] != "\033[36ma\\u001B[0m"){ //revisa el cuadrante arriba derecho
         adoquinamientoR(tablero, random1, random2, mitad, vert-(mitad/2), hor+(mitad/2));
     }else{
         tablero[vert-1][hor]="\033[36ma\u001B[0m";
         adoquinamientoR(tablero, random1, random2, mitad, vert-(mitad/2), hor+(mitad/2));
      }
 
-     if((random1 <= vert-1 && !(vert>mitad))&& ((random2<hor) && !(hor>mitad))){ //revisa el cuadrante arriba izquierdo
+     if(random1 <= vert-1 && random2<hor && tablero[vert-1][hor-1] != "\033[36ma\\u001B[0m"){ //revisa el cuadrante arriba izquierdo
         adoquinamientoR(tablero, random1, random2, mitad, vert-(mitad/2), hor-(mitad/2));
      }else{
         tablero[vert-1][hor-1]="\033[36ma\u001B[0m";
         adoquinamientoR(tablero, random1, random2, mitad, vert-(mitad/2), hor-(mitad/2));
      }
 
-     if(((random1>=vert) && !(vert<=mitad)) && ((random2 >= hor) && !(hor<mitad))){ //revisa el cuadrante abajo derecho
+     if(random1>=vert && random2 >= hor && tablero[vert][hor] != "\033[36ma\\u001B[0m"){ //revisa el cuadrante abajo derecho
         adoquinamientoR(tablero, random1, random2, mitad, vert+(mitad/2), hor+(mitad/2));
      }else{
          tablero[vert][hor]="\033[36ma\u001B[0m";
          adoquinamientoR(tablero, random1, random2, mitad, vert+(mitad/2), hor+(mitad/2));
      }
 
-     if(((random1>=vert) && !(vert<=mitad)) && ((random2<hor) && !(hor>mitad))){ //revisa el cuadrante abajo izquierdo
+     if(random1>=vert && random2<hor && tablero[vert][hor-1] != "\033[36ma\\u001B[0m"){ //revisa el cuadrante abajo izquierdo
         adoquinamientoR(tablero, random1, random2, mitad, vert+(mitad/2), hor-(mitad/2));
      }else{
         tablero[vert][hor-1]="\033[36ma\u001B[0m";
@@ -106,6 +106,7 @@ public static String[][] adoquinamientoR(String[][] tablero, int random1, int ra
     return tablero;
 
 }    
+
 
 
     public static void main(String[] args) {
