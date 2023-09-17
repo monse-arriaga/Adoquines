@@ -21,6 +21,8 @@ public static String[][] crearTablero(int k){
         System.out.println();
     }
      
+    System.out.println("Creamos el tablero:\n");
+
     for(int i=0; i < horizontal; i++){
         for(int j=0; j<vertical; j++){
             System.out.print(arreglo[i][j] + " ");
@@ -39,6 +41,8 @@ public static String[][] adoquinamiento(String[][] tablero){
     int random_int2 = r.nextInt(tablero.length);
     tablero[random_int][random_int2] = "\033[31me\u001B[0m";
 
+    System.out.println("Ponemos la casilla especial:\n");
+
        for(int i=0; i < horizontal; i++){
         for(int j=0; j<vertical; j++){
             System.out.print(arreglo[i][j] + " ");
@@ -53,6 +57,8 @@ public static String[][] adoquinamiento(String[][] tablero){
     vert = hor = tablero.length/2;
 
     adoquinamientoR(tablero, random_int, random_int2, longitud, vert, hor) ;
+
+    System.out.println("Adoquinamos las casillas base:\n ");
 
     for(int i=0; i < horizontal; i++){
         for(int j=0; j<vertical; j++){
@@ -109,6 +115,7 @@ public static String[][] adoquinamientoR(String[][] tablero, int random1, int ra
 
 
     public static String[][] colorearTabla(String[][] tabla){
+        System.out.println("Adoquinamos los espacios restantes:\n");
         for(int i=0; i < horizontal-1; i++){
         for(int j=0; j<vertical-1; j++){
 
@@ -154,7 +161,9 @@ public static String[][] adoquinamientoR(String[][] tablero, int random1, int ra
 
 
     public static void main(String[] args) {
-        colorearTabla(adoquinamiento(crearTablero(3)));
+        int terminal = Integer.parseInt(args[0]);
+
+        colorearTabla(adoquinamiento(crearTablero(terminal)));
         //System.out.println("\033[31m aaaa \033[37m");
     }
 }
